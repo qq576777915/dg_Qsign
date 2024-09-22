@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.4.1)
+
+# 添加 native-lib.cpp 文件为库
+add_library( native-lib SHARED src/main/cpp/native-lib.cpp )
+
+# 链接 log 库，用于打印日志
+find_library( log-lib log )
+
+# 将 log 库链接到 native-lib 库
+target_link_libraries( native-lib ${log-lib} )
